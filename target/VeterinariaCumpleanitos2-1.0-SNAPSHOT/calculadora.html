@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Años de Perros</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #67beea8a;
+    }
+
+    .calculator {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group label {
+      font-weight: bold;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+
+    .success-message {
+      color: #c3ff63;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="./index.html"><img id="iconheader" src="./img/logito.ico" alt="">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="btn btn-primary" href="./calculadora.html">Calculadora</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./servicios.html">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./ubicacion.html">Ubicación</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./login.html">Iniciar sesion</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="EspacioService"></div>
+
+<div class="calculator">
+  <h2 class="text-center mb-4">Calculadora de Años de Perros</h2>
+
+  <div class="form-group">
+    <label for="dog-age">Edad del perro (en años):</label>
+    <input type="number" id="dog-age" class="form-control" min="1" required>
+    <div id="age-error" class="error-message"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="dog-size">Tamaño del perro:</label>
+    <select id="dog-size" class="form-control" required>
+      <option value="pequeno">Pequeño</option>
+      <option value="mediano">Mediano</option>
+      <option value="grande">Grande</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="dog-breed">Raza del perro:</label>
+    <input type="text" id="dog-breed" class="form-control" required>
+  </div>
+
+  <button id="calculate-btn" class="btn btn-primary btn-block">Calcular</button>
+
+  <div class="result text-center mt-4">
+    <span id="dog-human-age"></span>
+  </div>
+</div>
+<div class="EspacioService"></div>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <a class="" href="https://www.gob.mx/tramites/ficha/ingreso-a-establecimientos-educativos-de-la-secretaria-de-marina/SEMAR3014"><img id="" src="./log.ico" alt=""></a>
+
+      </div>
+      <div class="col-md-3">
+        <h5>Horarios</h5>
+        <ul>
+          <li>Lunes - Viernes: 9:00 AM - 6:00 PM</li>
+          <li>Sábado: 9:00 AM - 2:00 PM</li>
+          <li>Domingo: Cerrado</li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h5>Métodos de pago</h5>
+        <ul>
+          <li>Efectivo</li>
+          <li>Tarjeta de crédito</li>
+          <li>Tarjeta de débito</li>
+          <li>Transferencia bancaria</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>Correo contacto: info@veterinaria.com</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<div class="scripts">
+
+  <div class="scriptbotas">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    // Función para calcular la edad humana del perro
+    function calculateDogHumanAge() {
+      var dogAge = parseInt(document.getElementById('dog-age').value);
+      var dogSize = document.getElementById('dog-size').value;
+      var dogBreed = document.getElementById('dog-breed').value;
+      var humanAge;
+
+      // Verificar la edad del perro
+      if (dogAge >= 30) {
+        document.getElementById('age-error').textContent = 'La edad del perro debe ser menor a 30 años.';
+        return;
+      } else {
+        document.getElementById('age-error').textContent = '';
+      }
+
+      // Cálculos según el tamaño del perro
+      if (dogSize === 'pequeno') {
+        humanAge = dogAge * 5;
+      } else if (dogSize === 'mediano') {
+        humanAge = dogAge * 6;
+      } else if (dogSize === 'grande') {
+        humanAge = dogAge * 7;
+      }
+
+      // Verificar la madurez sexual
+      if (humanAge <= 1) {
+        humanAge = 'Menos de 1 año (No alcanza la madurez sexual)';
+      }
+
+      // Mensaje con el resultado
+      var resultMessage = 'La edad humana aproximada de un perro ';
+      resultMessage += 'de raza ' + dogBreed + ' y tamaño ' + dogSize + ' es ';
+      resultMessage += humanAge + ' años.';
+
+      document.getElementById('dog-human-age').textContent = resultMessage;
+    }
+
+    // Event listener para el botón de calcular
+    document.getElementById('calculate-btn').addEventListener('click', function() {
+      calculateDogHumanAge();
+    });
+  </script>
+</div>
+</body>
+</html>

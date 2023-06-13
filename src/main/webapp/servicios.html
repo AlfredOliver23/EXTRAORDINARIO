@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-BFbrSewhrtz3d39DYmfEo+6UGeaVsmvvUBzUk17y0ybrGS0Jd6LhPvhJcd4mk7YhRlVvEHyHd2LN01DV3bS/gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .service-card {
+            position: relative;
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .service-card-inner {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .service-card:hover .service-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .service-card-front,
+        .service-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .service-card-front {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-card-back {
+            background-color: #6c63ff;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .service-card-back h3 {
+            margin-top: 0;
+        }
+
+        .service-card-back p {
+            font-size: 14px;
+        }
+
+        .row:nth-child(even) .col-md-4:nth-child(odd) .service-card-front,
+        .row:nth-child(odd) .col-md-4:nth-child(even) .service-card-front {
+            background-color: #6c63ff;
+        }
+
+        .row:nth-child(even) .col-md-4:nth-child(odd) .service-card-back,
+        .row:nth-child(odd) .col-md-4:nth-child(even) .service-card-back {
+            background-color: #f8f9fa;
+            color: #6c63ff;
+        }
+    </style>
+    <title>Veterinaria - Servicios</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="./index.html"><img id="iconheader" src="./img/logito.ico" alt="">Home</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./calculadora.html">Calculadora</a>
+                </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary" href="./servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./ubicacion.html">Ubicación</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./login.html">Iniciar sesion</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="EspacioService"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front"><h2>Estéticas</h2>
+                            <i class="fas fa-stethoscope fa-5x"></i>
+                        </div>
+                        <div class="service-card-back">
+                            
+                            <p>Realizamos servicios de estética para mantener a tu mascota con un aspecto impecable. Nuestros expertos en cuidado animal se encargarán de brindarle un tratamiento completo y personalizado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front"><h2>Baños antipulgas</h2>
+                            <i class="fas fa-vaccine fa-5x"></i>
+                        </div>
+                        <div class="service-card-back">
+                            
+                            <p>Ofrecemos servicios de baños antipulgas para ayudar a proteger a tu mascota de infestaciones de pulgas y garrapatas. Utilizamos productos seguros y efectivos para garantizar su bienestar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front"><h2>Limpiezas dentales</h2>
+                            <i class="fas fa-tooth fa-5x"></i>
+                        </div>
+                        <div class="service-card-back">
+                            
+                            <p>Nuestros servicios de limpieza dental ayudan a mantener la salud bucal de tu mascota. Contamos con profesionales que realizarán una limpieza a fondo y brindarán recomendaciones para cuidar sus dientes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front"><h2>Castración</h2>
+                            <i class="fas fa-cut fa-5x"></i>
+                        </div>
+                        <div class="service-card-back">
+                            
+                            <p>Realizamos procedimientos de castración para controlar la reproducción y promover la salud de tu mascota. Nuestro equipo médico garantiza un procedimiento seguro y sin complicaciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front"><h2>Sanaciones</h2>
+                            <i class="fas fa-heartbeat fa-5x"></i>
+                        </div>
+                        <div class="service-card-back">
+                            
+                            <p>Ofrecemos servicios de sanación para brindar apoyo y tratamiento a mascotas que requieren cuidados especiales debido a enfermedades o lesiones. Nuestro equipo médico se encargará de su bienestar y recuperación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front"><h2>Eutanasia</h2>
+                            <i class="fas fa-procedures fa-5x"></i>
+                        </div>
+                        <div class="service-card-back">
+                            
+                            <p>Ofrecemos servicios de eutanasia humanitaria para poner fin al sufrimiento de tu mascota en casos de enfermedad terminal o dolor extremo. Nuestro equipo médico brinda compasión y apoyo durante este proceso difícil.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="EspacioService"></div>
+    <footer>
+        <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <a class="" href="https://www.gob.mx/tramites/ficha/ingreso-a-establecimientos-educativos-de-la-secretaria-de-marina/SEMAR3014"><img src="./img/logito.ico" alt=""></a>
+
+              </div>
+              <div class="col-md-3">
+                <h5>Horarios</h5>
+                <ul>
+                  <li>Lunes - Viernes: 9:00 AM - 6:00 PM</li>
+                  <li>Sábado: 9:00 AM - 2:00 PM</li>
+                  <li>Domingo: Cerrado</li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <h5>Métodos de pago</h5>
+                <ul>
+                  <li>Efectivo</li>
+                  <li>Tarjeta de crédito</li>
+                  <li>Tarjeta de débito</li>
+                  <li>Transferencia bancaria</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>Correo contacto: info@veterinaria.com</p>
+              </div>
+            </div>
+          </div>
+    </footer>
+
+    <div class="scriptbotas">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </div>
+
+</body>
+</html>

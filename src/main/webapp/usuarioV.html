@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/log.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Document</title>
+</head>
+<!--Debe ser jsp-->
+<header>
+    <ul>
+        <li>Logo veterinario</li>
+        <li>Mis pacientes</li>
+        <li>Ver agenda</li>
+        <li>Registrar perro</li>
+    </ul>
+
+    <table>
+        <td>No recuerdo como hacer tablas ahorita ahorita</td>
+        <h2>Pero esto te va a mostrar las citas que tenga el dia de hoy</h2>
+    </table>
+
+    <h1>Agenda Web</h1>
+    
+    <h2>Próximas citas hasta las 8 pm:</h2>
+    <table>
+        <tr>
+            <th>Fecha</th>
+            <th>Título</th>
+        </tr>
+        
+        <%-- Obtener citas del servlet y mostrarlas --%>
+        <%
+            String fechaInicio = request.getParameter("fechaInicio");
+            String fechaFin = request.getParameter("fechaFin");
+
+            // Realizar la llamada al servlet para obtener las citas en formato JSON
+            // y asignarlas a una variable citasJson
+            
+            // Aquí puedes agregar tu código Java para obtener las citas del servlet
+            // y convertirlas en formato JSON
+
+            // Ejemplo de citas ficticias (para propósitos de demostración)
+            String citasJson = "[{\"fecha\":\"2023-06-03\", \"titulo\":\"Reunión de equipo\"}, {\"fecha\":\"2023-06-04\", \"titulo\":\"Cita médica\"}, {\"fecha\":\"2023-06-04\", \"titulo\":\"Cena con amigos\"}]";
+            
+            // Si obtienes citas en formato JSON, puedes convertirlas a objetos Java utilizando Gson
+            // Gson gson = new Gson();
+            // Cita[] citas = gson.fromJson(citasJson, Cita[].class);
+
+            // Aquí puedes agregar tu código Java para filtrar las citas hasta las 8 pm
+            // y mostrarlas en la tabla
+
+        %>
+        
+        <%-- Mostrar citas en la tabla --%>
+        <% if (citasJson != null && !citasJson.isEmpty()) { %>
+            <% 
+                // Recorrer las citas y mostrarlas en la tabla hasta las 8 pm
+                // Puedes utilizar JavaScript para manipular el JSON y mostrarlo de forma dinámica
+
+                // Aquí puedes agregar tu código Java para recorrer las citas y mostrarlas en la tabla
+                // Puedes utilizar JavaScript para manipular el JSON y mostrarlo de forma dinámica
+
+                // Ejemplo de citas ficticias (para propósitos de demostración)
+                for (int i = 0; i < citas.length; i++) {
+                    Cita cita = citas[i];
+                    
+                    // Obtener la hora de la cita (puedes utilizar la clase SimpleDateFormat para formatear la fecha)
+                    String horaCita = "08:00 PM";
+                    
+                    // Comparar la hora de la cita con las 8 pm
+                    if (horaCita.compareTo("08:00 PM") <= 0) {
+            %>
+                <tr>
+                    <td><%= cita.getFecha() %></td>
+                    <td><%= cita.getTitulo() %></td>
+                </tr>
+            <%      
+                    }
+                }
+            %>
+        <% } %>
+    </table>
+
+    
+</header>
+<body>
+    
+</body>
+</html>

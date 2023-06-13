@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="./img/log.ico" type="image/x-icon">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+  <title>Mapa</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="./index.html"><img id="iconheader" src="./img/logito.ico" alt="">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./calculadora.html">Calculadora</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./servicios.html">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="./ubicacion.html">Ubicacion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./login.html">Iniciar sesion</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="welcome-message">
+    <p>No dudes en visitarnos. Tu perro sera tratado como de la familia.</p>
+    <h1>Mapa</h1>
+
+  </div>
+  <br><br>
+  <div class="map-container">
+
+    <div id="map" style="width: 800px; height: 600px;"></div>
+  </div>
+  
+  
+    <footer>
+        <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <a class="" href="https://www.gob.mx/tramites/ficha/ingreso-a-establecimientos-educativos-de-la-secretaria-de-marina/SEMAR3014"><img src="./img/logito.ico" alt=""></a>
+
+              </div>
+              <div class="col-md-3">
+                <h5>Horarios</h5>
+                <ul>
+                  <li>Lunes - Viernes: 9:00 AM - 6:00 PM</li>
+                  <li>Sábado: 9:00 AM - 2:00 PM</li>
+                  <li>Domingo: Cerrado</li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <h5>Métodos de pago</h5>
+                <ul>
+                  <li>Efectivo</li>
+                  <li>Tarjeta de crédito</li>
+                  <li>Tarjeta de débito</li>
+                  <li>Transferencia bancaria</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>Correo contacto: info@veterinaria.com</p>
+              </div>
+            </div>
+          </div>
+    </footer>
+
+  <div class="scripts">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleHhvbWJ5IiwiYSI6ImNsaWo4c3d6NzA1NnMzZXBiZjE2a2I0aDAifQ.nVog7tI8-GkimJfWeb-hIg';
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-99.17491900, 19.45388900], // Nuevas coordenadas del CECYT 9
+        zoom: 15 // Ajusta el nivel de zoom según sea necesario
+      });
+
+      var marker = new mapboxgl.Marker()
+        .setLngLat([-99.17491900, 19.45388900]) // Nuevas coordenadas del marcador
+        .addTo(map);
+    </script>
+
+  </div>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/logito.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-BFbrSewhrtz3d39DYmfEo+6UGeaVsmvvUBzUk17y0ybrGS0Jd6LhPvhJcd4mk7YhRlVvEHyHd2LN01DV3bS/gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Iniciar sesión</title>
+
+    <script>
+        function validarFormulario() {
+            var nombre = document.getElementById('nombre').value;
+            var telefono = document.getElementById('telefono').value;
+            var direccion = document.getElementById('dir').value;
+
+            // Validación del nombre (letras y espacios hasta un máximo de 80 caracteres)
+            var nombreRegex = /^[A-Za-z\s]{1,80}$/;
+            if (!nombreRegex.test(nombre)) {
+                alert("El nombre solo puede contener letras y espacios, y debe tener hasta 80 caracteres.");
+                return false;
+            }
+
+            // Validación del teléfono (solo dígitos)
+            var telefonoRegex = /^\d+$/;
+            if (!telefonoRegex.test(telefono)) {
+                alert("El teléfono solo puede contener dígitos.");
+                return false;
+            }
+
+            // Validación de la dirección (letras, números y espacios)
+            var direccionRegex = /^[A-Za-z0-9\s]+$/;
+            if (!direccionRegex.test(direccion)) {
+                alert("La dirección solo puede contener letras, números y espacios.");
+                return false;
+            }
+
+            // Si todas las validaciones pasan, se puede enviar el formulario
+            alert("Formulario enviado correctamente.");
+            return true;
+        }
+    </script>
+
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="./index.html"><img id="iconheader" src="./img/logito.ico" alt="">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./calculadora.html">Calculadora</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./servicios.html">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./ubicacion.html">Ubicación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary"href="./login.html">Iniciar sesion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h2 id="login-title">Iniciar sesión</h2>
+                <form method="post" name="inicioPropietario" action="inicioPropietario" class="login-form">
+                    <div class="form-group">
+                        <label for="correo_inicio">Correo</label>
+                        <input type="text" name="correo_inicio" id="correo_inicio" class="form-control"
+                               placeholder="Ingresa tu correo">
+                    </div>
+                    <div class="form-group password-toggle">
+                        <label for="pass_inicio">Contraseña</label>
+                        <input type="password" name="pass_inicio" id="pass_inicio" class="form-control"
+                               placeholder="Ingresa tu contraseña">
+                        <span class="toggle-icon" onclick="togglePassword('pass_inicio')">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                    <p class="toggle-button">¿No tienes una cuenta? <a href="#" onclick="toggleForm()">Regístrate</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-container">
+                <h2 id="register-title">Registrarse</h2>
+                <form method="post" name="registroPropietario" action="guardarPropietario"   class="register-form">
+                    <div class="form-group">
+                        <label for="correo_registro">Correo</label>
+                        <input type="email" name="correoR" id="correo_registro" size="30" class="form-control"
+                               placeholder="Ingresa tu correo">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombreR" id="nombre" size="30" class="form-control"
+                               placeholder="Ingresa tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido_paterno">Apellido Paterno</label>
+                        <input type="text" name="appatR" id="apellido_paterno" size="30" class="form-control"
+                               placeholder="Ingresa tu apellido paterno">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido_materno">Apellido Materno</label>
+                        <input type="text" name="apmatR" id="apellido_materno" size="30" class="form-control"
+                               placeholder="Ingresa tu apellido materno">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="apellido_materno">Direccion : </label>
+                        <input type="text" name="dirR" id="dirrecion" size="30" class="form-control"
+                               placeholder="Ingresa tu dirrecion, confia 🥵">
+                    </div>
+                    <div class="form-group password-toggle">
+                        <label for="pass_registro">Contraseña</label>
+                        <input type="password" name="passR" id="pass_registro" size="30" class="form-control"
+                               placeholder="Ingresa tu contraseña">
+                        <span class="toggle-icon" onclick="togglePassword('pass_registro')">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                    <p class="toggle-button">¿Ya tienes una cuenta? <a href="#" onclick="toggleForm()">Iniciar
+                        sesión</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a class="" href="https://www.gob.mx/tramites/ficha/ingreso-a-establecimientos-educativos-de-la-secretaria-de-marina/SEMAR3014"><img id="" src="./img/logito.ico" alt=""></a>
+
+            </div>
+            <div class="col-md-3">
+                <h5>Horarios</h5>
+                <ul>
+                    <li>Lunes - Viernes: 9:00 AM - 6:00 PM</li>
+                    <li>Sábado: 9:00 AM - 2:00 PM</li>
+                    <li>Domingo: Cerrado</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Métodos de pago</h5>
+                <ul>
+                    <li>Efectivo</li>
+                    <li>Tarjeta de crédito</li>
+                    <li>Tarjeta de débito</li>
+                    <li>Transferencia bancaria</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>Correo contacto: info@veterinaria.com</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="scripts">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script>
+        function toggleForm() {
+            var loginForm = document.querySelector('.login-form');
+            var registerForm = document.querySelector('.register-form');
+            var loginTitle = document.querySelector('#login-title');
+            var registerTitle = document.querySelector('#register-title');
+
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                loginTitle.style.display = 'block';
+                registerTitle.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+                loginTitle.style.display = 'none';
+                registerTitle.style.display = 'block';
+            }
+        }
+
+        function togglePassword(inputId) {
+            var input = document.getElementById(inputId);
+            var toggleIcon = input.nextElementSibling.firstElementChild;
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+
+
+    </script>
+</div>
+
+</body>
+</html>

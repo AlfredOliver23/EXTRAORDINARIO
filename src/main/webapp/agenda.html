@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Debe ser jsp-->
+<body>
+    Agenda o ver
+    <a href="https://chat.openai.com/share/d64a9113-5094-409e-ad50-1ff4e4da2a49"><p>
+        te dejo el link de como segun chat lo haria
+    </p></a>
+
+   
+        <h1>Agendar Cita</h1>
+        <form action="AgendarCitaServlet" method="post">
+          <div>
+            <label for="dia">Día:</label>
+            <input type="date" id="dia" name="dia" class="input-field">
+          </div>
+          <div>
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" class="input-field">
+          </div>
+          <div>
+            <label for="nombrePerro">Nombre del perro:</label>
+            <input type="text" id="nombrePerro" name="nombrePerro" placeholder="Nombre del perro" class="input-field">
+          </div>
+          <div>
+            <label for="motivo">Motivo de la cita:</label>
+            <textarea id="motivo" name="motivo" placeholder="Motivo de la cita" class="input-field"></textarea>
+          </div>
+          <div>
+            <input type="submit" value="Agendar Cita" class="submit-button">
+          </div>
+        </form>
+        
+</body>
+</html>
